@@ -1,0 +1,109 @@
+$white: #fff;
+$grayblue: rgb(27, 30, 51);
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #0e0e0e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+
+}
+.ContainerTop{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ContainerTop h3{
+  position: absolute;
+  margin-top: 10px;
+  top: 0;
+}
+
+.ContainerInfo{
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.ContainerInfo #description{
+  width: 50vw;
+
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid rgb(247, 247, 247);
+  font-size: 1rem;
+  color:rgb(255, 255, 255);
+  padding: 20px 0;
+  background: transparent;
+  height: 80px;
+
+  transition: border-color 0.2s;
+
+  // overflow-y:hidden;
+  resize: none;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~
+  .descriptionLabel {
+    cursor: text;
+    top: 20px;
+    transition: 0.2s;
+
+  }
+}
+
+
+.descriptionLabel {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  
+}
+
+.ContainerInfo #description:focus{
+  ~ .descriptionLabel{
+    position: absolute;
+    top: -0.5rem;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $white;
+    font-weight: 700;
+
+  }
+  font-weight: 700;
+  border-width: 2px;
+  border-image: linear-gradient(to right, rgb(253, 253, 253), rgb(245, 3, 213));
+  border-image-slice: 1;
+  // background-color: rgba(255, 7, 222, 0.171);
+  transition: 0.3s;
+  }
+
+  *::-webkit-scrollbar {
+    width: 5px;
+    cursor: pointer;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #0e0e0e;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+  }
