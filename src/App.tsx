@@ -6,19 +6,43 @@ import React, {
 
 
 function App() {
-  
+
 
     const [description, setDescription] = useState('');
 
-
     useEffect(() => {
 
-       var descText = document.getElementById('description');
-       setDescription(''+descText!.textContent);
-       descText!.textContent = localStorage.getItem("description3");
 
-    
-    }, [description]);
+      // POST request using fetch inside useEffect React hook
+      const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ description: localStorage.getItem('descriptionValue') })
+      };
+      fetch('http://localhost:6565/description', requestOptions)
+          .then(response => response.json())
+  
+  // empty dependency array means this effect will only run once (like componentDidMount in classes)
+
+  async function DescriptionBackend()
+  {
+    const response = await fetch('http://localhost:6565/desc');
+    const data = await response.json();
+
+    var descText = document.getElementById('description');
+    setDescription(''+descText!.textContent);
+
+    descText!.textContent = data.description;
+
+  }
+
+  DescriptionBackend();
+
+  }, [localStorage.getItem('descriptionValue')]);
+
+  useEffect(() =>{
+
+  })
 
   return (
     
@@ -37,12 +61,10 @@ function App() {
           <textarea 
           id="description" 
           name="description1"
-          onChange={e => localStorage.setItem("description3", e.target.value)}
+          onChange={e => localStorage.setItem("descriptionValue", e.target.value)}
           autoComplete="off"
           />
           <label className="descriptionLabel">Descrição</label>
-
-          <p id="list">{description}</p>
 
         </div>
 
