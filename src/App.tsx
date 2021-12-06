@@ -26,7 +26,7 @@ function App() {
 
   async function DescriptionBackend()
   {
-    const response = await fetch('https://forrpgdados.herokuapp.com/desc');
+    const response = await fetch('https://forrpgdados.herokuapp.com/');
     const data = await response.json();
 
     var descText = document.getElementById('description');
