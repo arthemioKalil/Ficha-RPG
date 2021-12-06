@@ -19,14 +19,14 @@ function App() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ description: localStorage.getItem('descriptionValue') })
       };
-      fetch('http://localhost:6565/description', requestOptions)
+      fetch('https://forrpgdados.herokuapp.com/description', requestOptions)
           .then(response => response.json())
   
   // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
   async function DescriptionBackend()
   {
-    const response = await fetch('http://localhost:6565/desc');
+    const response = await fetch('https://forrpgdados.herokuapp.com/desc');
     const data = await response.json();
 
     var descText = document.getElementById('description');
