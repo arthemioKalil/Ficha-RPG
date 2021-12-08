@@ -22,11 +22,7 @@ function App() {
       // fetch('https://forrpgdados.herokuapp.com/description', requestOptions)
       //     .then(response => response.json())
 
-          fetch('https://forrpgdados.herokuapp.com/description', {
-              mode:'cors',
-              credentials: 'include',
-              method: 'POST',
-          })
+          fetch('https://forrpgdados.herokuapp.com/description', requestOptions)
           .then(response => response.json())
 
   // empty dependency array means this effect will only run once (like componentDidMount in classes)
