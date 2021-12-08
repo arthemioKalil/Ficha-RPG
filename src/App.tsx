@@ -19,9 +19,16 @@ function App() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ description: localStorage.getItem('descriptionValue') })
       };
-      fetch('https://forrpgdados.herokuapp.com/description', requestOptions)
+      // fetch('https://forrpgdados.herokuapp.com/description', requestOptions)
+      //     .then(response => response.json())
+
+          fetch('https://forrpgdados.herokuapp.com/description', {
+              mode:'cors',
+              credentials: 'include',
+              method: 'POST',
+          })
           .then(response => response.json())
-  
+
   // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
   async function DescriptionBackend()
@@ -38,11 +45,7 @@ function App() {
 
   DescriptionBackend();
 
-  }, [localStorage.getItem('descriptionValue')]);
-
-  useEffect(() =>{
-
-  })
+  }, [description]);
 
   return (
     
